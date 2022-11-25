@@ -58,12 +58,31 @@ class _RandomWordsState extends State<RandomWords> {
         if(index >= _suggesions.length){
           _suggesions.addAll(generateWordPairs().take(10));
         }
-        return ListTile(
+        return const ViewItem();
+        /* return ListTile(
           title: Text(
             _suggesions[index].asPascalCase,
             style: _biggerFont,
           ),
-        );
+        ); */
       });
+  }
+}
+
+class ViewItem extends StatefulWidget {
+  const ViewItem({ Key? key }) : super(key: key);
+
+  @override
+  State<ViewItem> createState() => _ViewItemState();
+}
+
+class _ViewItemState extends State<ViewItem> {
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      height: 56.0,
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: const Center(child:  Text('ABC')),
+    );
   }
 }
